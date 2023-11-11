@@ -2,21 +2,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
-int main() {
-    
-    typedef struct Node {
+typedef struct Node {
     int data;
     struct Node* next;
-    } node;
-    
+} node;
 
-    
+int main() {
     int item, i, n;
     node *fptr = NULL, *eptr = NULL, *nptr = NULL;
-    
+
     // ftr = First Node
-    // eptr = Moveable node pointer
+    // eptr = End node pointer
     // nptr = New node
 
     printf("Enter number of Nodes:\n");
@@ -38,13 +34,15 @@ int main() {
             eptr = nptr;
         }
     }
-    
-    
-    // display data
-    
-    
 
-
+    // Display data
+    printf("Linked List values:\n");
+    node* current = fptr;
+    while (current != NULL) {
+        printf("%d -> ", current->data);
+        current = current->next;
+    }
+    printf("NULL\n");
 
     return 0;
 }
