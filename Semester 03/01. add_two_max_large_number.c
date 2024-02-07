@@ -6,7 +6,7 @@
 char* addLargeNumbers(char* num1, char* num2) {
     int len1 = strlen(num1);
     int len2 = strlen(num2);
-    int maxLen = len1 > len2 ? len1 : len2;
+    int maxLen = len1 > len2 ? len1 : len2;   // If len1 > len2 then len1 otherwise len2
     int result[maxLen + 1]; // To store the result
     int carry = 0; // Initialize carry to 0
 
@@ -43,6 +43,4 @@ int main() {
     char number2[] = "10";
     char* sum = addLargeNumbers(number1, number2);
     printf("Sum: %s\n", sum);
-    free(sum); // Free the dynamically allocated memory
-    return 0;
 }
