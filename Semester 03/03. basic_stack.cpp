@@ -23,8 +23,21 @@ void pop(){
     cout << stack[top] << " Has beed Deleted" << endl;
     top -= 1;
   }
+  else{
+    cout << "No data available to  delete";
+  }
 
 };
+
+void peek(){
+    if(top >= 0){
+        cout << stack[top] << " Peeked" << endl;
+        top -= 1;
+    }
+    else{
+      cout << "No data available to  peek";
+  }
+}
 
 
 int main() 
@@ -33,8 +46,12 @@ int main()
     push(20);
     push(30);
     push(40);
-    pop();
+    peek();
     push(50);
+    peek();
+    peek();
+    peek();
+    peek();
     
     
 }
