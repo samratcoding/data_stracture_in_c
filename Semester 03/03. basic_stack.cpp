@@ -21,6 +21,7 @@ void push(int data){
 void pop(){
   if(top >= 0){
     cout << stack[top] << " Has beed Deleted" << endl;
+    stack[top] = 0;
     top -= 1;
   }
   else{
@@ -29,29 +30,43 @@ void pop(){
 
 };
 
-void peek(){
-    if(top >= 0){
-        cout << stack[top] << " Peeked" << endl;
-        top -= 1;
-    }
-    else{
-      cout << "No data available to  peek";
-  }
-}
 
+
+void printStack(){
+  for(int i=0; i< CAPACITY; i++){
+    cout << stack[i] << ",";
+  }
+  cout << endl;
+}
 
 int main() 
 {
     push(10);
+    printStack();
+    
     push(20);
+    printStack();
+    
     push(30);
+    printStack();
+    
     push(40);
-    peek();
+    printStack();    
+    
+    pop();
+    printStack();    
+    
     push(50);
-    peek();
-    peek();
-    peek();
-    peek();
+    printStack();   
+    
+    pop();
+    printStack(); 
+    
+    pop();
+    printStack(); 
+    
+    pop();
+    printStack(); 
     
     
 }
