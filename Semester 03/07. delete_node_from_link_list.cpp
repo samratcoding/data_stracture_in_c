@@ -14,10 +14,10 @@ void deleteNode(Node*& fptr, Node*& eptr, int value) {
         return;
     }
 
-    if (current == fptr) {
+    if (current == fptr) {    # if frist node
         fptr = current->next;
     }
-    if (current == eptr) {
+    if (current == eptr) {    # if last node
         eptr = current->prev;
     }
 
