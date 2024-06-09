@@ -35,11 +35,19 @@ Node *insert_node(Node *firstptr, int item){
      return firstptr;
 }
 
+Node *insert_first(Node *firstptr, int item){
+     Node *newptr= new Node;
+     newptr->data = item;
+     newptr->next = firstptr;
+     firstptr = newptr;
+     return firstptr;
+}
+
 
 
 int main()
 {
-    int n, item, lastitem;
+    int n, item, lastitem, firstitem;
     Node *firstptr=nullptr;
     
     cout << "Enter Nmber : ";
@@ -64,7 +72,12 @@ int main()
     traverse(firstptr);
     cout << "Second traverse Done!\n";
     
+    cout<<"Enter a data for first position : ";
+    cin>>firstitem;
+    firstptr = insert_first(firstptr,firstitem);
     
+    traverse(firstptr);
+    cout << "Third traverse Done!\n";
 
     return 0;
 }
