@@ -39,8 +39,7 @@ Node *insert_first(Node *firstptr, int item){
      Node *newptr= new Node;
      newptr->data = item;
      newptr->next = firstptr;
-     firstptr = newptr;
-     return firstptr;
+     return newptr;
 }
 
 
