@@ -1,63 +1,58 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
 
-struct Node {
+struct Node{
     int data;
-    Node* next;
-    Node* prev;
+    Node *next;
+    Node *prev;
 };
 
-int main() {
-    int item, n;
-    Node *fptr = nullptr, *eptr = nullptr, *nptr = nullptr;
-
-    cout << "Enter number of Nodes:" << endl;
-    cin >> n;
-
-    for (int i = 1; i <= n; i++) {
-        cout << "Enter value for node " << i << ":" << endl;
-        cin >> item;
-
-        nptr = new Node;
-        nptr->data = item;
-        nptr->next = nullptr;
-        nptr->prev = nullptr;
-
-        if (fptr == nullptr) {
-            fptr = nptr;
-            eptr = nptr;
-        } else {
-            eptr->next = nptr;
-            nptr->prev = eptr;
-            eptr = nptr;
+int main(){
+    
+    int n, item;
+    Node *firstptr=nullptr, *lastptr=nullptr, *newptr=nullptr;
+    
+    cout<< "Enter number : ";
+    cin>>n;
+    
+    for(int i=0;i<n;i++){
+        cout<< "Enter Data" << i+1 << " : ";
+        cin>>item;
+        
+        newptr = new Node;
+        newptr->data = item;
+        newptr->next = nullptr;
+        newptr->prev = nullptr;
+        
+        if(firstptr==nullptr){
+            firstptr=newptr;
+            lastptr=newptr;
         }
+        else{
+            lastptr->next = newptr;
+            newptr->prev = lastptr;
+            lastptr = newptr;
+        }
+        
     }
-
-    // Display data
-    cout << "Linked List values (forward):" << endl;
-    Node* current = fptr;
-    while (current != nullptr) {
-        cout << current->data << " -> ";
-        current = current->next;
+    
+    // Forward Traversing
+    cout<<"\nforward Traversing";
+    Node *forward = firstptr;
+    while(forward!=nullptr){
+        cout << forward->data << " -> ";
+        forward = forward->next;
     }
-    cout << "NULL" << endl;
-
-    // Display data in reverse
-    cout << "Linked List values (backward):" << endl;
-    current = eptr;
-    while (current != nullptr) {
-        cout << current->data << " -> ";
-        current = current->prev;
+    
+    
+    // Reverse Traversing
+    cout<<"\nReverse Traversing";
+    Node *reverse = lastptr;
+    while(reverse!=nullptr){
+        cout << reverse->data << " -> ";
+        reverse = reverse->prev;
     }
-    cout << "NULL" << endl;
-
-    // Free memory (not required in this simple example, but good practice)
-    current = fptr;
-    while (current != nullptr) {
-        Node* temp = current;
-        current = current->next;
-        delete temp;
-    }
-
-    return 0;
+     
+        
 }
+    
