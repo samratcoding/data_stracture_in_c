@@ -30,7 +30,7 @@ Node *insert_node(Node *firstptr, int item){
          while(lastptr->next!=nullptr){
              lastptr=lastptr->next;
          }
-         lastptr->next = lastptr;
+         lastptr->next = newptr;
      }
      return firstptr;
 }
