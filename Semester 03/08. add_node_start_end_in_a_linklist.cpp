@@ -1,68 +1,70 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
 
-struct Node {
+
+struct Node{
     int data;
-    Node* next;
+    Node *next;
 };
 
 
-Node* addToBeginning(Node* head, int newData) {
-    Node* newNode = new Node();
-    newNode->data = newData;
-    newNode->next = head;
-    return newNode;
+void traverse(Node *firstptr){
+    Node *traverse = firstptr;
+    while(traverse!= nullptr){
+        cout << traverse->data << " -> ";
+        traverse = traverse->next;
+    }
+    
 }
 
 
-Node* addToEnd(Node* head, int newData) {
-    Node* newNode = new Node();
-    newNode->data = newData;
-    newNode->next = nullptr;
-
-    if (head == nullptr)
-        return newNode;
-
-    Node* temp = head;
-    while (temp->next != nullptr) {
-        temp = temp->next;
-    }
-    temp->next = newNode;
-    return head;
+Node *insert_node(Node *firstptr, int item){
+     Node *newptr= new Node;
+     newptr->data = item;
+     newptr->next = nullptr;
+     if(firstptr==nullptr){
+         firstptr=newptr;
+     }
+     else{
+         Node *current = firstptr;
+         while(current->next!=nullptr){
+             current=current->next;
+         }
+         current->next = newptr;
+     }
+     return firstptr;
 }
 
-// Function to print the linked list
-void printLinkedList(Node* head) {
-    while (head != nullptr) {
-        cout << head->data << " ";
-        head = head->next;
+
+
+int main()
+{
+    int n, item, lastitem;
+    Node *firstptr=nullptr;
+    
+    cout << "Enter Nmber : ";
+    cin>>n;
+    for(int i=0;i<n;i++){
+        
+        cout<< "Enter item " << i+1 <<": ";
+        cin>>item;
+        
+        firstptr = insert_node(firstptr, item);
+        
     }
-    cout << endl;
-}
+    
+    traverse(firstptr);
+    cout << "Firs traverse Done!\n";
+    
 
-int main() {
-    Node* head = nullptr;
-
-    // Taking input for creating the linked list with 6 nodes
-    cout << "Enter 6 numbers to create the initial linked list: ";
-    for (int i = 0; i < 6; ++i) {
-        int num;
-        cin >> num;
-        head = addToEnd(head, num);
-    }
-
-    int newDataBegin, newDataEnd;
-    cout << "Enter a number to add at the beginning: ";
-    cin >> newDataBegin;
-    head = addToBeginning(head, newDataBegin);
-
-    cout << "Enter a number to add at the end: ";
-    cin >> newDataEnd;
-    head = addToEnd(head, newDataEnd);
-
-    // Printing the linked list
-    cout << "Linked List after adding nodes at the beginning and end: ";
-    printLinkedList(head);
+    cout<<"Enter a data for last position : ";
+    cin>>lastitem;
+    firstptr = insert_node(firstptr,lastitem);
+    
+    traverse(firstptr);
+    cout << "Second traverse Done!\n";
+    
+    
 
     return 0;
 }
