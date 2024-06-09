@@ -8,7 +8,7 @@ struct Node {
 
 int main() {
     int item, n;
-    Node *fptr = nullptr, *eptr = nullptr, *nptr = nullptr;
+    Node *fptr = nullptr, *eptr = nullptr, *nptr = nullptr;  // *nptr = nullptr if dosen't declear then follow 20 line
 
     cout << "Enter number of Nodes:" << endl;
     cin >> n;
@@ -17,6 +17,7 @@ int main() {
         cout << "Enter value for node " << i << ":" << endl;
         cin >> item;
 
+        // Node *nptr = new Node;   it like Java Object declear
         nptr = new Node;
         nptr->data = item;
         nptr->next = nullptr;
