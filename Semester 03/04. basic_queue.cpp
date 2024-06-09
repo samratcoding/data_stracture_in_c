@@ -3,14 +3,16 @@ using namespace std;
 #define CAPACITY 3
 
 int queue[CAPACITY];
-int font=0, rear=-1, totalitem=0;
+int font=0, rear=0, totalitem=0;
 
 void enqueue(int data){
   if(CAPACITY != totalitem){
-    rear = (rear + 1) % CAPACITY;
-    totalitem++;
+    rear = rear % CAPACITY;
+    cout<< "rear: "<< rear << endl;
     queue[rear] = data;
     cout << data << " has been enqueue (added)" << endl;
+    totalitem++;
+    rear++;
   }
   else{
     cout << "Space FUll" << endl;
@@ -19,10 +21,11 @@ void enqueue(int data){
 
 void dequeue(){
   if(totalitem != 0){
-    cout << queue[font] << " has been dequeue (deleted)" << endl;
+    cout  << queue[font] << " has been dequeue (deleted)" << endl;
     queue[font] = 0;
-    font = (font + 1) % CAPACITY;
+    font = font % CAPACITY;
     totalitem--;
+    font--;
   }
   else{
     cout << "No data to dequeue" << endl;
