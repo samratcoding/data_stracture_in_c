@@ -26,11 +26,11 @@ Node *insert_node(Node *firstptr, int item){
          firstptr=newptr;
      }
      else{
-         Node *current = firstptr;
-         while(current->next!=nullptr){
-             current=current->next;
+         Node *lastptr = firstptr;
+         while(lastptr->next!=nullptr){
+             lastptr=lastptr->next;
          }
-         current->next = newptr;
+         lastptr->next = lastptr;
      }
      return firstptr;
 }
