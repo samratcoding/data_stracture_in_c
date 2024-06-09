@@ -3,13 +3,13 @@ using namespace std;
 #define CAPACITY 3
 
 int stack[CAPACITY];
-int top = -1;
+int top = 0;
 
 void push(int data){
-  if(top < CAPACITY -1){
-    top += 1;
+  if(top < CAPACITY){
     stack[top] = data;
     cout << data << " added successfully" << endl;
+    top++;
     
   }
   else{
@@ -22,7 +22,7 @@ void pop(){
   if(top >= 0){
     cout << stack[top] << " Has beed Deleted" << endl;
     stack[top] = 0;
-    top -= 1;
+    top--;
   }
   else{
     cout << "No data available to  delete";
@@ -40,7 +40,9 @@ void printStack(){
 }
 
 int main() 
-{
+{   
+    printStack();
+    
     push(10);
     printStack();
     
