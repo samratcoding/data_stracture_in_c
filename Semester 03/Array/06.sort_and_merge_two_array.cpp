@@ -1,14 +1,5 @@
 #include <iostream>
-
 using namespace std;
-
-void merge(int arr1[], int n1, int arr2[], int n2, int arr3[]) 
-{ 
-   
-
-    // Traverse both arrays and insert the smaller element into arr3[] 
-   
-} 
 
 int main() 
 { 
