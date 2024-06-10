@@ -4,7 +4,12 @@ using namespace std;
 int main() 
 { 
     int arr1[] = { 1, 3, 3, 7, 9 }; 
-    int n1 = sizeof(arr1) / sizeof(arr1[0]); 
+    int n1 = sizeof(arr1) / sizeof(arr1[0]);   
+    // sizeof(arr1) total byte example : for 5 int type data here is 20 byte
+    // sizeof(arr1[0]) single value byte, here is int type data we can use 4 statically 
+    // we can do index 1 or 2 but putting 0 position is good practice
+    // sizeof(arr1) = total size / single size;  This calculation will return size of arry dynamically
+    
     int arr2[] = { 2, 4, 6, 8 }; 
     int n2 = sizeof(arr2) / sizeof(arr2[0]); 
     int arr3[n1 + n2]; 
