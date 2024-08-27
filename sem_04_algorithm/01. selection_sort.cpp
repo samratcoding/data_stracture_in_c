@@ -17,7 +17,7 @@ int main(){
      } // end condition
 
     } // end inner loop
-    j = i+i;
+    j = i+1;
     temp = data[i];
     data[i] = data[small_i];
     data[small_i] = temp;
