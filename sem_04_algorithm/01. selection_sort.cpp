@@ -1,34 +1,41 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-int main(){
-  int n = 7, temp, i, j;
-  int data[n] = {7,3,2,9,5,10,12};
+// Selection sort function
+void selectionSort(int arr[], int n) {
+    for (int i = 0; i < n - 1; i++) {  // Loop through the entire array
+        int small_i = i;  // Assume the current element is the smallest
+
+        // Find the smallest element in the unsorted part
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] < arr[small_i]) {
+                small_i = j;  // Update the index of the smallest element
+            }
+        }
+
+        // Swap the smallest element found with the first element of the unsorted part
+        swap(arr[i], arr[small_i]);
+    }
+}
+
+void printArray(int arr[], int size) {
+    for (int i = 0; i < size; i++)
+        cout << arr[i] << " ";
+    cout << endl;
+}
 
 
-  for(i = 0; i<n; i++){
+int main() {
+    const int n = 7;  // Array size is constant
+    int data[n] = {7, 3, 2, 9, 5, 10, 12};  // Initialize array
+    // Print sorted array
+    printArray(data, n);
+    
+    // Call the selection sort function
+    selectionSort(data, n);
 
-    int small_i = i;
+    // Print sorted array
+    printArray(data, n);
 
-    for(j=i+1; j<n; j++){
-
-     if(data[j] < data[small_i]){
-        small_i = j;
-     } // end condition
-
-    } // end inner loop
-    j = i+1;
-    temp = data[i];
-    data[i] = data[small_i];
-    data[small_i] = temp;
-
-  } //end outer loop
-
-
-
-  for(int i = 0; i<n; i++){
-    cout << data[i] << "\n";
-  }
-
-
-} // end main function
+    return 0;
+}
